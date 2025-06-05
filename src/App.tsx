@@ -1,9 +1,15 @@
-import Home from "./pages/Home";
+import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import ProductGrid from "./components/ProductGrid";
 
 function App() {
   return (
     <>
-     <Home />
+     <Navbar />
+     <Hero />
+     <ProductGrid />
+     <Footer />
     </>
   )
 }
