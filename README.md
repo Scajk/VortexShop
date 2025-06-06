@@ -6,6 +6,9 @@
 
 VortexShop é uma loja virtual moderna, desenvolvida com React, TypeScript e Tailwind CSS.  
 A aplicação consome a Fake Store API para exibir produtos reais, oferecendo funcionalidades como filtros por categoria, tema claro/escuro, menu hamburguer responsivo, e carrinho de compras.
+
+---
+
 https://scajk.github.io/VortexShop/
 
 ---
