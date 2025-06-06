@@ -9,16 +9,15 @@ export default function Navbar() {
   return (
     <header className="w-full px-4 py-3 border-b flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 bg-background text-foreground">
       
-      <div className="flex items-center justify-between w-full sm:w-auto">
+      <div className="flex items-center justify-between w-full sm:w-auto sm:mr-6">
         <a href="/" className="flex items-center gap-2">
           <img
             src="vortexshop_logo_trimmed_transparent.png"
             alt="Vórtex Shop"
             className="h-10 w-auto object-contain"
           />
+          <span className="text-primary font-bold">VortexShop</span>
         </a>
-        <span className="text-primary font-bold">VortexShop</span>
-
         <button
           className="sm:hidden p-2"
           onClick={() => setIsOpen(!isOpen)}

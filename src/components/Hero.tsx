@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       className="relative py-20 px-4 text-center text-white bg-center bg-cover"
       style={{
-        backgroundImage: "url('./public/images.jpeg')",
+        backgroundImage: "url('./Bg_Hero.jpeg')",
       }}
     >
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
