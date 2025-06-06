@@ -16,7 +16,7 @@ A aplicação consome a Fake Store API para exibir produtos reais, oferecendo fu
 - Tailwind CSS
 - Lucide Icons
 - Fake Store API ([https://fakestoreapi.com](https://fakestoreapi.com))
-- Vite (ou Next.js, ajustar conforme seu setup)
+- Vite
 
 ---
 
