@@ -16,7 +16,7 @@ export default function Hero() {
         <p className="text-primary-foreground text-lg mb-6">
           Estilo, conforto e tecnologia para todos os dias
         </p>
-        <Button size="lg" className="text-base">
+        <Button size="lg" className="text-base cursor-pointer">
           Veja Mais
         </Button>
       </div>

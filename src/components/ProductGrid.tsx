@@ -77,7 +77,7 @@ export default function ProductGrid() {
       </div>
 
       {loading ? (
-        <p className="text-center text-muted-foreground text-primary">Carregando produtos...</p>
+        <p className="text-center text-muted-foreground text-primary font-bold">Carregando produtos...</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
