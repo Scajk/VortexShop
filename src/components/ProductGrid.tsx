@@ -17,29 +17,41 @@ export default function ProductGrid() {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
+      try {
+        setLoading(true);
+        setError(null);
 
-      const categoriesRes = await fetch("https://fakestoreapi.com/products/categories");
-      const categoriesData: string[] = await categoriesRes.json();
-      setCategories(categoriesData);
+        const categoriesRes = await fetch("https://fakestoreapi.com/products/categories");
+        if (!categoriesRes.ok) throw new Error("Erro ao carregar categorias.");
 
-      const productsRes = await fetch("https://fakestoreapi.com/products");
-      const productsData: APIProduct[] = await productsRes.json();
+        const categoriesData: string[] = await categoriesRes.json();
+        setCategories(categoriesData);
 
-      const transformed: ProductProps[] = productsData.map((item) => ({
-        id: item.id,
-        name: item.title,
-        price: `R$ ${item.price.toFixed(2).replace(".", ",")}`,
-        image: item.image,
-        rating: item.rating.rate,
-        category: item.category,
-      }));
+        const productsRes = await fetch("https://fakestoreapi.com/products");
+        if (!productsRes.ok) throw new Error("Erro ao carregar produtos.");
 
-      setProducts(transformed);
-      setLoading(false);
+        const productsData: APIProduct[] = await productsRes.json();
+
+        const transformed: ProductProps[] = productsData.map((item) => ({
+          id: item.id,
+          name: item.title,
+          price: `R$ ${item.price.toFixed(2).replace(".", ",")}`,
+          image: item.image,
+          rating: item.rating.rate,
+          category: item.category,
+        }));
+
+        setProducts(transformed);
+      } catch (err: any) {
+        console.error(err);
+        setError(err.message || "Erro ao carregar os dados.");
+      } finally {
+        setLoading(false);
+      }
     }
 
     fetchData();
@@ -55,6 +67,12 @@ export default function ProductGrid() {
       <h2 className="text-3xl font-bold mb-6 text-center text-primary">
         Produtos em destaque
       </h2>
+
+      {error && (
+        <p className="text-red-500 text-center font-bold mb-6">
+          {error}
+        </p>
+      )}
 
       <div className="flex flex-wrap justify-center gap-3 mb-8">
         <Button
@@ -76,9 +94,13 @@ export default function ProductGrid() {
         ))}
       </div>
 
-      {loading ? (
-        <p className="text-center text-muted-foreground text-primary font-bold">Carregando produtos...</p>
-      ) : (
+      {loading && !error && (
+        <p className="text-center text-muted-foreground text-primary font-bold">
+          Carregando produtos...
+        </p>
+      )}
+
+      {!loading && !error && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} {...product} />
