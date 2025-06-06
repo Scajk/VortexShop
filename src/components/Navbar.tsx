@@ -11,12 +11,12 @@ export default function Navbar() {
       <div className="flex items-center justify-between w-full sm:w-auto">
         <a href="/" className="flex items-center gap-2">
           <img
-            src="/Logo-cropped.png"
+            src="vortexshop_logo_trimmed_transparent.png"
             alt="Vórtex Shop"
             className="h-10 w-auto object-contain"
           />
         </a>
-        <span className="text-primary">VortexShop</span>
+        <span className="text-primary font-bold">VortexShop</span>
 
         <button
           className="sm:hidden p-2"
