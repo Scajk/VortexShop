@@ -60,6 +60,7 @@ export default function ProductGrid() {
         <Button
           variant={selectedCategory === "all" ? "default" : "outline"}
           onClick={() => setSelectedCategory("all")}
+          className="cursor-pointer"
         >
           Todas
         </Button>
@@ -68,7 +69,7 @@ export default function ProductGrid() {
             key={category}
             variant={selectedCategory === category ? "default" : "outline"}
             onClick={() => setSelectedCategory(category)}
-            className="capitalize"
+            className="capitalize cursor-pointer"
           >
             {category}
           </Button>

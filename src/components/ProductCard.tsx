@@ -29,15 +29,15 @@ export default function ProductCard({ id, name, price, image, rating, category }
         <h3 className="font-semibold text-lg truncate">{name}</h3>
         <p className="text-primary font-bold">{price}</p>
       </div>
-      <div className="flex items-center justify-between text-sm text-muted-foreground p-2">
-        <StarRating rating={rating} />
+      <div className="flex items-center gap-2 text-sm text-muted-foreground p-2">
         <span className="ml-1">({rating.toFixed(1)})</span>
+        <StarRating rating={rating} />
       </div>
       <div className="p-2 flex justify-between items-center">
         <Button
           variant="default"
           onClick={() => AddToCart(id)}
-          className="gap-2"
+          className="gap-2 cursor-pointer"
         >
           <ShoppingCart size={18} />
           Adicionar ao carrinho
